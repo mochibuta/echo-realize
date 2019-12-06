@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build-env
+    volumes:
+      - ./:/go/src
+    command: realize start --run
+    ports:
+      - "1323:1323"
+    restart: always
